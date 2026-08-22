@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  /* Theme variables (system default uses prefers-color-scheme) */
+  --bg: #08080b;
+  --panel-bg: rgba(255,255,255,0.03);
+  --text: #cbd5e1;
+  --muted: #94a3b8;
+  --glass-border: rgba(255,255,255,0.06);
+  --accent-start: #6366f1; /* indigo */
+  --accent-end: #14b8a6;   /* teal */
+  --btn-foreground: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root[data-theme="system"] {
+    --bg: #f8fafc;
+    --panel-bg: rgba(0,0,0,0.02);
+    --text: #0f172a;
+    --muted: #475569;
+    --glass-border: rgba(0,0,0,0.06);
+  }
+}
+
+/* Light theme override */
+:root[data-theme="light"] {
+  --bg: #f8fafc;
+  --panel-bg: rgba(0,0,0,0.02);
+  --text: #0f172a;
+  --muted: #475569;
+  --glass-border: rgba(0,0,0,0.06);
+}
+
+/* Dark theme override */
+:root[data-theme="dark"] {
+  --bg: #060708;
+  --panel-bg: rgba(255,255,255,0.03);
+  --text: #cbd5e1;
+  --muted: #94a3b8;
+  --glass-border: rgba(255,255,255,0.06);
+}
+
+html,body,#root{height:100%; background:var(--bg); color:var(--text);}
+
+/* General glass card */
+.glass {
+  background: linear-gradient(135deg, var(--panel-bg), rgba(255,255,255,0.02));
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid var(--glass-border);
+}
+
+/* Accent button used across site */
+.btn-accent {
+  display: inline-block;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  color: var(--btn-foreground, #000);
+  font-weight: 600;
+  background-image: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+  box-shadow: 0 6px 18px rgba(99,102,241,0.12);
+}
+
+.btn-accent:focus{outline:2px solid rgba(99,102,241,0.18); outline-offset:2px}
+
+/* Floating orb */
+.orb {
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle at 30% 30%, rgba(99,102,241,0.22), transparent 40%), radial-gradient(circle at 70% 70%, rgba(16,185,129,0.14), transparent 40%);
+  filter: blur(18px);
+  border-radius: 9999px;
+}
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Utility to use muted text */
+.text-muted{ color: var(--muted); }
