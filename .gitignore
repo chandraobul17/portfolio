@@ -1,0 +1,15 @@
+# Dependencies installed locally; deployment platforms install these from package-lock.json.
+node_modules/
+
+# Generated build output
+dist/
+
+# Vite and hosting-provider caches
+.vite/
+.vercel/
+.netlify/
+
+# Local environment files
+.env
+.env.*
+!.env.example
